@@ -2,13 +2,13 @@
 
 A simple full-stack application using **FastAPI**, **Redis**, and **AngularJS** that displays real-time log messages.
 
-## 🔧 Tech Stack
+## Tech Stack
 
 - **Backend:** FastAPI, Redis
 - **Frontend:** AngularJS
 - **Others:** REST API, JSON, periodic polling with Angular `$interval`
 
-## 🚀 Features
+## Features
 
 - Fetches messages from FastAPI backend
 - Stores logs in Redis
