@@ -14,7 +14,7 @@ A simple full-stack application using **FastAPI**, **Redis**, and **AngularJS** 
 - Stores logs in Redis
 - Displays logs on the frontend with auto-refresh
 
-## 🛠️ How to Run
+## How to Run
 
 ### Backend
 ```bash
