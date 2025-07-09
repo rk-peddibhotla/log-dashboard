@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="logApp">
+<head>
+  <meta charset="UTF-8" />
+  <title>Log Dashboard</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="LogController">
+
+  <h1>Log Messages</h1>
+  <button ng-click="fetchMessages()">Refresh Messages</button>
+
+  <ul>
+    <li ng-repeat="msg in messages track by $index">{{ msg }}</li>
+  </ul>
+
+  <script>
+    angular.module('logApp', [])
+      .controller('LogController', function($scope, $http, $interval) {
+        $scope.messages = [];
+
+        $scope.fetchMessages = function() {
+          $http.get('http://localhost:8000/messages')
+            .then(function(response) {
+              $scope.messages = response.data.messages;
+            }, function(error) {
+              console.error('Error fetching messages:', error);
+            });
+        };
+
+        // Fetch messages every 5 seconds
+        $interval($scope.fetchMessages, 5000);
+
+        // Initial fetch
+        $scope.fetchMessages();
+      });
+  </script>
+
+</body>
+</html>
